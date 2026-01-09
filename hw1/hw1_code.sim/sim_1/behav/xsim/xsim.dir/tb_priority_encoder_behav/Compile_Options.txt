@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "tb_priority_encoder_behav" "xil_defaultlib.tb_priority_encoder" -log "elaborate.log" 
