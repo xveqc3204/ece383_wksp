@@ -1,0 +1,17 @@
++====================+====================+===========================================================+
+| Launch Setup Clock | Launch Hold Clock  | Pin                                                       |
++====================+====================+===========================================================+
+| sys_clk_pin        | clk_out1_clk_wiz_0 | video_final/inst_dvid/TDMS_encoder_green/dc_bias_reg[0]/D |
+| sys_clk_pin        | clk_out1_clk_wiz_0 | video_final/inst_dvid/TDMS_encoder_blue/encoded_reg[9]/D  |
+| sys_clk_pin        | clk_out1_clk_wiz_0 | video_final/inst_dvid/TDMS_encoder_green/dc_bias_reg[3]/D |
+| sys_clk_pin        | clk_out1_clk_wiz_0 | video_final/inst_dvid/TDMS_encoder_green/dc_bias_reg[1]/D |
+| sys_clk_pin        | clk_out1_clk_wiz_0 | video_final/inst_dvid/TDMS_encoder_green/dc_bias_reg[2]/D |
+| sys_clk_pin        | clk_out1_clk_wiz_0 | video_final/inst_dvid/TDMS_encoder_blue/dc_bias_reg[3]/D  |
+| sys_clk_pin        | clk_out1_clk_wiz_0 | video_final/inst_dvid/TDMS_encoder_blue/encoded_reg[1]/D  |
+| sys_clk_pin        | clk_out1_clk_wiz_0 | video_final/inst_dvid/TDMS_encoder_blue/dc_bias_reg[2]/D  |
+| sys_clk_pin        | clk_out1_clk_wiz_0 | video_final/inst_dvid/TDMS_encoder_blue/dc_bias_reg[0]/D  |
+| sys_clk_pin        | clk_out1_clk_wiz_0 | video_final/inst_dvid/TDMS_encoder_blue/dc_bias_reg[1]/D  |
+| sys_clk_pin        | clk_out1_clk_wiz_0 | video_final/inst_dvid/TDMS_encoder_red/dc_bias_reg[1]/D   |
+| sys_clk_pin        | clk_out1_clk_wiz_0 | video_final/inst_dvid/TDMS_encoder_blue/encoded_reg[4]/D  |
+| sys_clk_pin        | clk_out1_clk_wiz_0 | video_final/inst_dvid/TDMS_encoder_blue/encoded_reg[0]/D  |
++--------------------+--------------------+-----------------------------------------------------------+
