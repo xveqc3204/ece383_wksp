@@ -9,12 +9,12 @@ Our primary objective was to design the display portion of a standard oscillosco
 
 Figures 1 and 2 below illustrate the oscilloscope grid diagram we aimed to display and the overall block diagram that guided our design and development process.
 
-![Figure 1: Oscilloscope Grid Diagram](ECE383/Oscilloscope_Coordinate_plane.png)
+![Figure 1: Oscilloscope Grid Diagram](ece383_wksp/lab1/Oscilloscope_Coordinate_plane.png)
 _Figure 1: Oscilloscope Grid Diagram_
 
 This diagram helped us identify the numbering for the horizontal and vertical grid, box positions, hash marks, and trigger sizes. It provided actionable insight for implementing these primary display features and was especially useful for defining the spacing and numbering needed to render professional-looking hashes.
 
-![Figure 2: Block Diagram](ECE383/Oscilloscope%20Grid%20Diagram.png)
+![Figure 2: Block Diagram](ece383_wksp/lab1/Oscilloscope%20Grid%20Diagram.png)
 _Figure 2: Block Diagram_
 
 We will now break down the components, focusing on the sections we primarily developed. Working from the inside out, we start with the horizontal and vertical counters. The horizontal counter counts from 0 to 799 (pixels per row), and the vertical counter counts from 0 to 524 (rows). We adopted the standard front- and back-porch convention for video signal timing. The actual screen size is 640x480, with the horizontal porch, sync, and back porch taking up 160 pixels per row, and the vertical porch occupying 45 rows.
@@ -39,16 +39,16 @@ Throughout the testing and debugging phase, we relied primarily on the modular t
 
 As required, below are three excerpts from the vga_module, shown as figures 3, 4, and 5:
 
-![Figure 3: hsync signal transitions (high, low, high) in relation to column count.](ECE383/figure3.png)
+![Figure 3: hsync signal transitions (high, low, high) in relation to column count.](ece383_wksp/lab1/figure3.png)
 _Figure 3: hsync signal transitions (high, low, high) in relation to column count._
 
-![Figure 4: vsync signal transitions (high, low, high) in relation to both row and column count.](ECE383/figure4.png)
+![Figure 4: vsync signal transitions (high, low, high) in relation to both row and column count.](ece383_wksp/lab1/figure4.png)
 _Figure 4: vsync signal transitions (high, low, high) in relation to both row and column count._
 
-![Figure 5: blank signal transitions (high, low, high) in relation to column and row count.](ECE383/figure5.png)
+![Figure 5: blank signal transitions (high, low, high) in relation to column and row count.](ece383_wksp/lab1/figure5.png)
 _Figure 5: blank signal transitions (high, low, high) in relation to column and row count._
 
-![Figure 6: column count rolling over causing the row count to increment and max counts for both counters](ECE383/figure6.png)
+![Figure 6: column count rolling over causing the row count to increment and max counts for both counters](ece383_wksp/lab1/figure6.png)
 _Figure 6: column count rolling over causing the row count to increment and max counts for both counters_
 
 Major problems, such as trigger and hash mark logic not generating properly or passing specific tests, were solved through a conceptual conversation with other students (as referenced in the documentation). They provided better insight and a more reliable method for these items in the color_mapper, improving upon our initial brute-force approach. Additionally, syntax and minor logic issues—especially those related to the front porch, sync, and back porch flags—were resolved using the vga_log_tb. We also learned the importance of running simulations for a sufficient duration, as this was initially overlooked during our early testing stages.
@@ -59,10 +59,10 @@ Each milestone and gate check—except for gate check 1, which was impacted by e
 
 The remaining gate checks and the overall system were fully functional and met all requirements by the end of the project. Gate checks 2 and 3 were successfully achieved. The highlights below demonstrate progressive accomplishment throughout development.
 
-![Figure 7: Gate Check 2 Passing all Cases](ECE383/figure7.png)
+![Figure 7: Gate Check 2 Passing all Cases](ece383_wksp/lab1/figure7.png)
 _Figure 7: Gate Check 2 Passing all Cases_
 
-![Figure 8: Successful Online VGA Simulator Display (vga_log_tb for color_mapper file)](ECE383/figure8.png)
+![Figure 8: Successful Online VGA Simulator Display (vga_log_tb for color_mapper file)](ece383_wksp/lab1/figure8.png)
 _Figure 8: Successful Online VGA Simulator Display (vga_log_tb for color_mapper file)_
 
 As an aside, the code was not pushed to GitHub in stages until the very end, leaving this as the only primary component that was not achieved.
