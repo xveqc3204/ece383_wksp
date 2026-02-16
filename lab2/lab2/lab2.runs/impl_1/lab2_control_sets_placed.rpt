@@ -1,0 +1,93 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Sun Feb 15 21:36:59 2026
+| Host         : C27-5CG3121G2J running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file lab2_control_sets_placed.rpt
+| Design       : lab2
+| Device       : xc7a200t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    15 |
+|    Minimum number of control sets                        |    15 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    47 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    15 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     3 |
+| >= 6 to < 8        |     3 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     4 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     2 |
+| >= 16              |     3 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              80 |           26 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              41 |           15 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              72 |           25 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------------------------------------------------------+---------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+------------------+----------------+--------------+
+|                           Clock Signal                          |                                  Enable Signal                                  |                                        Set/Reset Signal                                        | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------------------------------------------------------+---------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG                                                  |                                                                                 |                                                                                                |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG                                                  |                                                                                 | datapath/v_trigger_stepper/SR[0]                                                               |                3 |              4 |         1.33 |
+|  datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out2 |                                                                                 | datapath/video_inst/inst_dvid/shift_red[7]_i_1_n_0                                             |                1 |              5 |         5.00 |
+|  datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out2 |                                                                                 | datapath/video_inst/inst_dvid/shift_red[9]_i_1_n_0                                             |                4 |              6 |         1.50 |
+|  clk_IBUF_BUFG                                                  | datapath/t_trigger_stepper/db_cnt[20]_i_1_n_0                                   | datapath/v_trigger_stepper/SR[0]                                                               |                3 |              7 |         2.33 |
+|  clk_IBUF_BUFG                                                  | datapath/v_trigger_stepper/db_cnt[20]_i_1_n_0                                   | datapath/v_trigger_stepper/SR[0]                                                               |                3 |              7 |         2.33 |
+|  datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out1 |                                                                                 | datapath/video_inst/Inst_vga/vga_signal_generator_Final/horizontal_counter/processQ[9]_i_1_n_0 |                3 |             10 |         3.33 |
+|  datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out1 | datapath/video_inst/Inst_vga/vga_signal_generator_Final/horizontal_counter/E[0] | datapath/v_trigger_stepper/SR[0]                                                               |                3 |             10 |         3.33 |
+|  clk_IBUF_BUFG                                                  | datapath/t_trigger_stepper/process_q[10]_i_1__0_n_0                             | datapath/v_trigger_stepper/SR[0]                                                               |                3 |             10 |         3.33 |
+|  clk_IBUF_BUFG                                                  | datapath/v_trigger_stepper/process_q[10]_i_1_n_0                                | datapath/v_trigger_stepper/SR[0]                                                               |                3 |             10 |         3.33 |
+|  clk_IBUF_BUFG                                                  | datapath/t_trigger_stepper/db_cnt[16]_i_2__0_n_0                                | datapath/t_trigger_stepper/db_cnt[16]_i_1__0_n_0                                               |                5 |             14 |         2.80 |
+|  clk_IBUF_BUFG                                                  | datapath/v_trigger_stepper/db_cnt[16]_i_2_n_0                                   | datapath/v_trigger_stepper/db_cnt[16]_i_1_n_0                                                  |                5 |             14 |         2.80 |
+|  datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out1 |                                                                                 | datapath/video_inst/Inst_vga/vga_signal_generator_Final/vga_reg[blank]_0                       |                4 |             16 |         4.00 |
+|  datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out2 |                                                                                 |                                                                                                |                7 |             29 |         4.14 |
+|  datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out1 |                                                                                 |                                                                                                |               17 |             47 |         2.76 |
++-----------------------------------------------------------------+---------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+------------------+----------------+--------------+
+
+

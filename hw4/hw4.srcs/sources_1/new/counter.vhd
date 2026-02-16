@@ -44,24 +44,26 @@ entity counter is
 end counter;
 
 architecture Behavioral of counter is
-signal rollCombo : STD_LOGIC;
-signal processQ : unsigned(num_bits-1 downto 0);
+  signal processQ : unsigned(num_bits-1 downto 0) := (others => '0');
+  constant MAX_U  : unsigned(num_bits-1 downto 0) := to_unsigned(max_value, num_bits);
 begin
-process(clk)
-    begin
-    if(rising_edge(clk)) then
-        if (reset_n = '0') then 
-            processQ <= (others => '0');
-        elsif ((processQ < max_value) and (ctrl = '1')) then
-            processQ <= processQ + 1;
-        elsif((processQ = max_value) and (ctrl = '1')) then 
-            processQ <= (others => '0');
-        elsif(ctrl = '0') then
-            processQ <= processQ;
+
+  process(clk)
+  begin
+    if rising_edge(clk) then
+      if reset_n = '0' then
+        processQ <= (others => '0');
+      elsif ctrl = '1' then
+        if processQ = MAX_U then
+          processQ <= (others => '0');
+        else
+          processQ <= processQ + 1;
         end if;
-     end if;
- end process;
- rollCombo <= '1' when (processQ = max_value) else '0';
- roll <= rollCombo;
- Q <= processQ;
+      end if;
+    end if;
+  end process;
+
+  roll <= '1' when (processQ = MAX_U and ctrl = '1') else '0';
+  Q    <= processQ;
+
 end Behavioral;

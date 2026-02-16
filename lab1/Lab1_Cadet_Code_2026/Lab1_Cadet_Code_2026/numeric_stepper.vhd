@@ -23,51 +23,62 @@ entity numeric_stepper is
 end numeric_stepper;
 
 architecture numeric_stepper_arch of numeric_stepper is
-    signal process_q : signed(num_bits-1 downto 0) := to_signed(min_value,num_bits);
-    signal prev_up, prev_down : std_logic := '0';
-    signal is_increment, is_decrement : boolean := false;
-    
-    --Documentation: C2C Metwally helped me understand debouncing and general concepts surrounding this implementation
-    --100 MHz, 2,000,000 cycles = 0.02 s = 20 ms window where not accepting inputs
-    constant CLK_HZ : integer := 100000000;          
-    constant DEBOUNCE_TICKS : integer := CLK_HZ / 50;  
-    signal db_cnt : integer range 0 to DEBOUNCE_TICKS := 0;
-    
+  signal process_q : signed(num_bits-1 downto 0) := to_signed(min_value,num_bits);
+  signal prev_up, prev_down : std_logic := '0';
+
+  constant CLK_HZ : integer := 100000000;
+  constant DEBOUNCE_TICKS : integer := CLK_HZ / 50;
+  signal db_cnt : integer range 0 to DEBOUNCE_TICKS := 0;
+
+  signal do_inc, do_dec : std_logic := '0';
 begin
-    
-    process(clk)
-    begin
-        if(rising_edge(clk)) then
-        
-            -- debounce counter
-            if reset_n = '0' then
-                db_cnt <= 0;
-            elsif db_cnt > 0 then
-                db_cnt <= db_cnt - 1;
-            end if;
-            
-            --db_cnt is included to ensure first input is only input for the next 20ms
-            is_increment <= true when (en = '1' and db_cnt = 0 and up = '1' and prev_up = '0' and down = '0') else false;
-            is_decrement <= true when (en = '1' and db_cnt = 0 and down = '1' and prev_down = '0' and up = '0') else false;
-            
-            process_q <= to_signed(min_value, num_bits) when reset_n = '0' else
-                         signed(process_q) + signed(to_signed(delta, num_bits)) when is_increment else
-                         signed(process_q) - signed(to_signed(delta, num_bits)) when is_decrement else
-                         process_q;
- 
-            -- start debounce cooldown after press
-            if reset_n = '1' then
-                if is_increment or is_decrement then
-                    db_cnt <= DEBOUNCE_TICKS;
-                end if;
-            end if;             
-                         
-            prev_up   <= '0' when reset_n = '0' else up;
-            prev_down <= '0' when reset_n = '0' else down;
-                
-        end if;   
-    end process;
-    
-q <= process_q;
+
+  process(clk)
+  begin
+    if rising_edge(clk) then
+
+      -- default each cycle
+      do_inc <= '0';
+      do_dec <= '0';
+
+      if reset_n = '0' then
+        process_q <= to_signed(min_value, num_bits);
+        prev_up   <= '0';
+        prev_down <= '0';
+        db_cnt    <= 0;
+
+      else
+        -- debounce counter
+        if db_cnt > 0 then
+          db_cnt <= db_cnt - 1;
+        end if;
+
+        -- detect rising edge presses (only if debounce expired)
+        if en = '1' and db_cnt = 0 then
+          if up = '1' and prev_up = '0' and down = '0' then
+            do_inc <= '1';
+            db_cnt <= DEBOUNCE_TICKS;
+          elsif down = '1' and prev_down = '0' and up = '0' then
+            do_dec <= '1';
+            db_cnt <= DEBOUNCE_TICKS;
+          end if;
+        end if;
+
+        -- update value
+        if do_inc = '1' then
+          process_q <= process_q + to_signed(delta, num_bits);
+        elsif do_dec = '1' then
+          process_q <= process_q - to_signed(delta, num_bits);
+        end if;
+
+        prev_up   <= up;
+        prev_down <= down;
+      end if;
+
+    end if;
+  end process;
+
+  q <= process_q;
 
 end numeric_stepper_arch;
+
