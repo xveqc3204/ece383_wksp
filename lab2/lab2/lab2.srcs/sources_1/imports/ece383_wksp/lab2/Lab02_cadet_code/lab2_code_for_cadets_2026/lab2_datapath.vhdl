@@ -56,10 +56,16 @@ architecture lab2_datapath_arch of lab2_datapath is
         sda : inout STD_LOGIC;
         sim_live : in STD_LOGIC);   --  '0' simulate audio; '1' live audio
 	end component;
-  
+	
+	component flag_register
+    Port (set : in STD_LOGIC;
+          clear : in STD_LOGIC;                                   
+          q : out STD_LOGIC);
+    end component;
+    
     signal sw_ready: std_logic;
     signal sw_last_address: std_logic;
-    signal sw_trigger: std_logic;
+    signal sw_trigger : std_logic;
     
     signal cw_counter_control: std_logic_vector(1 downto 0);
     signal cw_write_en: std_logic := '0';
@@ -74,6 +80,15 @@ architecture lab2_datapath_arch of lab2_datapath is
     signal position: coordinate_t;
     signal reset: std_logic;   
     signal write_address: unsigned(9 downto 0);
+    
+    --bram_addr_counter flags for readability
+    constant START_COL : unsigned(9 downto 0) := to_unsigned(20,10);
+    constant END_COL   : unsigned(9 downto 0) := to_unsigned(659,10);
+    signal write_roll  : std_logic;
+    
+    --holds 1 bit cw_write_en as a 2 bit representation (by anding them together later) so I can properly map to WE port for the left and right channel memory
+    signal bram_we_l : STD_LOGIC_VECTOR(1 downto 0);
+    signal bram_we_r : STD_LOGIC_VECTOR(1 downto 0);
     
    --Buttons
     constant CENTER : integer := 4;
@@ -121,22 +136,30 @@ begin
                 ch1.prev_sample <= ch1.current_sample;
                 ch2.prev_sample <= ch2.current_sample;
                 
-                -- convert signed-ish sample to unsigned display range
+                -- Convert Signed sample from Codec into an unsigned value
+                -- Add code here (Look at make_unsigned function)
                 ch1.current_sample <= make_unsigned(ch1.incoming_sample);
                 ch2.current_sample <= make_unsigned(ch2.incoming_sample);
 
 			end if;
 		end if;
 	end process;
-
-    -- Convert Signed sample from Codec into an unsigned value
-    -- Add code here (Look at make_unsigned function)
     
     -- Send the unsigned current sample to the BRAM
     -- Add code here 
-	
+    ch1.to_bram <= ch1.current_sample;
+    ch2.to_bram <= ch2.current_sample;	
+    
     -- Need logic for the FLAG register
 	-- Add code here
+    flag_register_dp : flag_register
+    port map (
+        set     => sw_ready,
+        clear   => flagClear,                                   
+        q       => flagQ  
+    );
+    
+
 	
     ------------------------------------------------------------------------------
 	-- If a button has been pressed then increment of decrement the trigger time and Volt
@@ -145,7 +168,7 @@ begin
 	------------------------------------------------------------------------------
     
     -- Add 2 numeric steppers
-	       v_trigger_stepper : entity work.numeric_stepper
+	   v_trigger_stepper : entity work.numeric_stepper
        generic map (
            num_bits  =>  11,
            max_value => 420,
@@ -186,26 +209,39 @@ begin
 	-- How high should it count?  Will it go to its start value on reset or load?
 	-------------------------------------------------------------------------------
 	-- Add code here.  Use a previously built counter.
-	
+	BRAM_counter: entity work.bram_addr_counter
+    generic map (
+        num_bits => 10,
+        max_value => 1023,
+        load_value => 0
+    )
+    port map (
+        clk => clk,
+        reset_n => reset_n,
+        ctrl => cw_counter_control,
+        D => START_COL,
+        roll => write_roll,
+        Q => writeCntr
+    );
+
+sw_last_address <= '1' when writeCntr = to_unsigned(1023,10) else '0';
+sw(1) <= sw_last_address;
+
 	-------------------------------------------------------------------------------
 	-- Triggering Logic: A positive crossing of the trigger occurs when the previous value is 
 	--	less than the trigger and the current value is greater than or equal to
 	-- the trigger.  Set the status word to alert the FSM that it should start 
 	-- recording the samples.
 	-------------------------------------------------------------------------------		
---	trig_detect : trigger_detector
---    port map (
---        clk  => clk,
---        reset_n => reset_n,
---        threshold => trigger.v,
---        ready => sw_ready,
---        monitored_signal => unsigned(ch1.from_ac),
---        crossed_trigger => sw_trigger
---    );
-
-	--Gate Check 1 testing
-	sw_trigger <= '0';
-    sw_last_address <= '0';
+	trig_detect : trigger_detector
+    port map (
+        clk  => clk,
+        reset_n => reset_n,
+        threshold => trigger.v,
+        ready => sw_ready,
+        monitored_signal => unsigned(ch1.current_sample),
+        crossed_trigger => sw_trigger
+    );
 	
 	-------------------------------------------------------------------------------
 	-- Instantiate the video driver from Lab1 - should integrate smoothly
@@ -226,29 +262,33 @@ begin
 -- Audio Codec stuff goes here
 
 is_live <= '0'; --  '0' simulate audio; '1' live audio
-                  -- should a switch go here?
+--is_live <= btn(IS_LIVE_SWITCH);             
                   
 
---Audio_Codec : Audio_Codec_Wrapper
---    Port map ( clk => clk,
---        reset_n => reset_n, 
---        ac_mclk => ac_mclk,
---        ac_adc_sdata => ac_adc_sdata,
---        ac_dac_sdata => ac_dac_sdata,
---        ac_bclk => ac_bclk,
---        ac_lrclk => ac_lrclk,
---        ready => sw_ready,
---        L_bus_in => ch1.to_ac, -- left channel input to DAC
---        R_bus_in => ch2.to_ac, -- right channel input to DAC
---        L_bus_out => ch1.from_ac, -- left channel output from ADC
---        R_bus_out => ch2.from_ac, -- right channel output from ADC
---        scl => scl,
---        sda => sda,
---        sim_live => is_live);  --  '0' simulate audio; '1' live audio
+Audio_Codec : Audio_Codec_Wrapper
+    Port map ( clk => clk,
+        reset_n => reset_n, 
+        ac_mclk => ac_mclk,
+        ac_adc_sdata => ac_adc_sdata,
+        ac_dac_sdata => ac_dac_sdata,
+        ac_bclk => ac_bclk,
+        ac_lrclk => ac_lrclk,
+        ready => sw_ready,
+        L_bus_in => ch1.to_ac, -- left channel input to DAC
+        R_bus_in => ch2.to_ac, -- right channel input to DAC
+        L_bus_out => ch1.from_ac, -- left channel output from ADC
+        R_bus_out => ch2.from_ac, -- right channel output from ADC
+        scl => scl,
+        sda => sda,
+        sim_live => is_live);  --  '0' simulate audio; '1' live audio
 
 
     -- BRAM stuff goes here
-
+    
+    -- becomes "11" when cw_write_en='1'
+    bram_we_l <= cw_write_en & cw_write_en;  --turns 1 bit into 2 bits so I can properly map to WE port for the left;
+    bram_we_r <= cw_write_en & cw_write_en;  --turns 1 bit into 2 bits so I can properly map to WE port for the right;
+    
 	reset <= not reset_n;
 	
 	leftChannelMemory : BRAM_SDP_MACRO
@@ -334,11 +374,11 @@ is_live <= '0'; --  '0' simulate audio; '1' live audio
             RST => reset,                 -- active high reset
             RDEN => '1',                    -- read enable
             REGCE => '1',                   -- 1-bit input read output register enable
-            DI => (15 downto 0 => '0'),                   -- Input data port, width defined by WRITE_WIDTH parameter
-            WE => (1 downto 0 => '0'),                     -- Input write enable, width defined by write port depth
-            WRADDR => (9 downto 0 => '0'),                -- Input write address, width defined by write port depth
+            DI => ch1.to_bram,                   -- Input data port, width defined by WRITE_WIDTH parameter
+            WE => bram_we_l,                  -- Input write enable, width defined by write port depth
+            WRADDR => std_logic_vector(writeCntr),      -- Input write address, width defined by write port depth
             WRCLK => clk,                   -- 1-bit input write clock
-            WREN => '0');              -- 1-bit input write port enable
+            WREN => cw_write_en);              -- 1-bit input write port enable
             -- End of BRAM_SDP_MACRO_inst instantiation
 
 
@@ -426,19 +466,16 @@ is_live <= '0'; --  '0' simulate audio; '1' live audio
             RST => reset,
             RDEN => '1',
             REGCE => '1',                   -- 1-bit input read output register enable
-            DI => (15 downto 0 => '0'),                    -- Input data port, width defined by WRITE_WIDTH parameter
-            WE => (1 downto 0 => '0'),                        -- Input write enable, width defined by write port depth
-            WRADDR => (9 downto 0 => '0'),                -- Input write address, width defined by write port depth
+            DI => ch2.to_bram,                    -- Input data port, width defined by WRITE_WIDTH parameter
+            WE => bram_we_r,                        -- Input write enable, width defined by write port depth
+            WRADDR => std_logic_vector(writeCntr),                -- Input write address, width defined by write port depth
             WRCLK => clk,                    -- 1-bit input write clock
-            WREN => '0');                -- 1-bit input write port enable
+            WREN => cw_write_en);                -- 1-bit input write port enable
             -- End of BRAM_SDP_MACRO_inst instantiation
-            
-    sw_ready <= '1';  -- GC1 always ready(for testing gate check 1)
-
 
     sw(0) <= sw_ready;
-    sw(1) <= sw_last_address;
     sw(2) <= sw_trigger;
+--    sw(1) <= sw_last_address; set above
     
     cw_counter_control <= cw(1 downto 0);
     cw_write_en <= cw(2);

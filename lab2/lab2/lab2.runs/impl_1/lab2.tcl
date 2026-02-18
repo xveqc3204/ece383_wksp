@@ -106,6 +106,7 @@ set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
   set_param chipscope.maxJobs 4
+  set_param xicom.use_bs_reader 1
   set_param runs.launchOptions { -jobs 8  }
   open_checkpoint lab2_routed.dcp
   set_property webtalk.parent_dir C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.cache/wt [current_project]

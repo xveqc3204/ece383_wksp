@@ -93,6 +93,37 @@
   <FileSets Version="1" Minor="32">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/audio_init.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Lab02_cadet_code/lab2_code_for_cadets_2026/audio_init.v"/>
+          <Attr Name="ImportTime" Val="1771024186"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/Audio_Codec_Wrapper.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Lab02_cadet_code/lab2_code_for_cadets_2026/Audio_Codec_Wrapper.vhd"/>
+          <Attr Name="ImportTime" Val="1771024186"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/TWICtl.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Lab02_cadet_code/lab2_code_for_cadets_2026/TWICtl.vhd"/>
+          <Attr Name="ImportTime" Val="1771024186"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/bram_addr_counter.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/ece383_pkg.vhd">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../Lab02_cadet_code/lab2_code_for_cadets_2026/ece383_pkg.vhd"/>
@@ -123,6 +154,14 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/i2s_ctl.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Lab02_cadet_code/lab2_code_for_cadets_2026/i2s_ctl.vhd"/>
+          <Attr Name="ImportTime" Val="1771024186"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/../../lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/numeric_stepper.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -148,6 +187,14 @@
       <File Path="$PSRCDIR/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/tdms.vhdl">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../Lab02_cadet_code/lab2_code_for_cadets_2026/tdms.vhdl"/>
+          <Attr Name="ImportTime" Val="1771024186"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/trigger_detector.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Lab02_cadet_code/lab2_code_for_cadets_2026/trigger_detector.vhd"/>
           <Attr Name="ImportTime" Val="1771024186"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -185,49 +232,9 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/audio_init.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Lab02_cadet_code/lab2_code_for_cadets_2026/audio_init.v"/>
-          <Attr Name="ImportTime" Val="1771024186"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/TWICtl.vhd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Lab02_cadet_code/lab2_code_for_cadets_2026/TWICtl.vhd"/>
-          <Attr Name="ImportTime" Val="1771024186"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/i2s_ctl.vhd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Lab02_cadet_code/lab2_code_for_cadets_2026/i2s_ctl.vhd"/>
-          <Attr Name="ImportTime" Val="1771024186"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/Audio_Codec_Wrapper.vhd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Lab02_cadet_code/lab2_code_for_cadets_2026/Audio_Codec_Wrapper.vhd"/>
-          <Attr Name="ImportTime" Val="1771024186"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/trigger_detector.vhd">
+      <File Path="$PSRCDIR/sources_1/new/flag_register.vhd">
         <FileInfo>
           <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Lab02_cadet_code/lab2_code_for_cadets_2026/trigger_detector.vhd"/>
-          <Attr Name="ImportTime" Val="1771024186"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -252,9 +259,10 @@
       </Config>
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1" RelGenDir="$PGENDIR/sim_1">
+      <Filter Type="Srcs"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="Audio_Codec_Wrapper"/>
+        <Option Name="TopModule" Val="lab2"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
         <Option Name="TransportPathDelay" Val="0"/>
@@ -319,9 +327,7 @@
   <Runs Version="1" Minor="22">
     <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7a200tsbg484-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" IncrementalCheckpoint="$PSRCDIR/utils_1/imports/synth_1/Audio_Codec_Wrapper.dcp" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -331,9 +337,7 @@
     </Run>
     <Run Id="clk_wiz_0_synth_1" Type="Ft3:Synth" SrcSet="clk_wiz_0" Part="xc7a200tsbg484-1" ConstrsSet="clk_wiz_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/clk_wiz_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/clk_wiz_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/clk_wiz_0_synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -343,9 +347,7 @@
     </Run>
     <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a200tsbg484-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1" LaunchOptions="-jobs 8 " AutoRQSDir="$PSRCDIR/utils_1/imports/impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -363,9 +365,7 @@
     </Run>
     <Run Id="clk_wiz_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tsbg484-1" ConstrsSet="clk_wiz_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="clk_wiz_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/clk_wiz_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/clk_wiz_0_impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

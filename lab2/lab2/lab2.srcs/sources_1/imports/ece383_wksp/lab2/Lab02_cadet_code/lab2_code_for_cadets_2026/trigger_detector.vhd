@@ -26,13 +26,14 @@ begin
     begin
         if rising_edge(clk) then
             if reset_n = '0' then
-                -- Add code here
-            elsif 
-                -- Add code here
+                previous <= (others => '0');
+            elsif ready = '1' then
+                previous <= monitored_signal(15 downto 0);
             end if;
         end if;
     end process;
-
-    crossed_trigger <= -- Add code here
+    
+    -- resize function and syntax found online, essentially sizes to the monitored_signal length so no sizing errors occur when comparing
+    crossed_trigger <= '1' when ((ready = '1') and (monitored_signal >= (resize(threshold, monitored_signal'length))) and (previous < (resize(threshold, monitored_signal'length)))) else '0';
 
 end architecture trigger_detector_arch;
