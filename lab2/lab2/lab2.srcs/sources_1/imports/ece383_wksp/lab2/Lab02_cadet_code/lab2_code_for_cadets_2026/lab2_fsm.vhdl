@@ -27,51 +27,39 @@ entity lab2_fsm is
 end lab2_fsm;
 
 architecture Behavioral of lab2_fsm is
-
-    type state_type is (resetCounter, waitForReady, saveSample, incCounter, isDoneCount);
-	signal state: state_type;
-	
-	-- Mappings made it datapath to reference
-    -- sw(0) = ready
-    -- sw(1) = last address reached (writeCntr == END_COL)
-    -- sw(2) = trigger 
-    
+    type state_type is (waitForTrigger, resetCounter, waitForReady, 
+                        saveSample, incCounter);
+    signal state: state_type := waitForTrigger;
 begin
-
-	-------------------------------------------------------------------------------
-	--		SW		meaning
-	--		
-	-------------------------------------------------------------------------------
-	state_process : process(clk)  
-	begin
-		if (rising_edge(clk)) then
-			if (reset_n = '0') then 
-				state <= resetCounter;
-			else 
-				case state is
+    state_process : process(clk)  
+    begin
+        if (rising_edge(clk)) then
+            if (reset_n = '0') then 
+                state <= waitForTrigger;
+            else 
+                case state is
+                    when waitForTrigger =>
+                        if sw(2)='1' then  -- trigger crossed
+                            state <= resetCounter;
+                        end if;
                     when resetCounter =>
                         state <= waitForReady;
                     when waitForReady =>
-                        if sw(0)='1' then --ready
+                        if sw(0)='1' then  -- ready
                             state <= saveSample;
                         end if;
                     when saveSample =>
                         state <= incCounter;
                     when incCounter =>
-                        state <= isDoneCount;
-                    when isDoneCount =>
-                        if sw(1)='1' then
-                            state <= resetCounter;
+                        if sw(1)='1' then       -- captured 640 samples
+                            state <= waitForTrigger;  -- wait for next trigger
                         else
                             state <= waitForReady;
                         end if;
-                    when others =>
-                        state <= resetCounter;
-				end case;
-			end if;
-		end if;
-	end process;
-
+                end case;
+            end if;
+        end if;
+    end process;
 	-------------------------------------------------------------------------------
 	--  CW output table
 	--		CW		meaning
@@ -84,7 +72,7 @@ begin
           "000" when state = waitForReady else  -- hold, no write
           "100" when state = saveSample  else   -- write enable
           "001" when state = incCounter  else   -- ctrl="01" count
-          "000";   -- isDoneCount, no write and holding
+          "000";   -- waitForTrigger
           
 end Behavioral;
 

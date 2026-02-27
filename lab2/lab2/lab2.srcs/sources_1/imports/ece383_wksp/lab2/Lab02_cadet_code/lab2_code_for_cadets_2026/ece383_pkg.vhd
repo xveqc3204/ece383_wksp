@@ -213,7 +213,7 @@ package body ece383_pkg is
   -- Applies an offset to center the signal on the horizontal axis
   function apply_offset(input_vector: std_logic_vector) return unsigned is
       variable result: unsigned(input_vector'range);
-      constant offset: unsigned := to_unsigned(0,9); -- Change this to your desired offset
+      constant offset: unsigned := to_unsigned(36, input_vector'length); -- Change this to your desired offset
   begin
       result := unsigned(input_vector) - offset;        
       return result;

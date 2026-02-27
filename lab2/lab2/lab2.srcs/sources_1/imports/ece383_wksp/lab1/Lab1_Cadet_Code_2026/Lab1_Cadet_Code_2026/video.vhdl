@@ -28,7 +28,6 @@ architecture structure of video is
 	signal vga_signal: vga_t;
 	signal pixel: pixel_t;
 
-
     --------------------------------------------------------------------------
     -- Clock Wizard Component Instantiation Using Xilinx Vivado 
     --------------------------------------------------------------------------
@@ -42,7 +41,7 @@ architecture structure of video is
      end component;   
 
 begin
-
+    
 	--------------------------------------------------------------------------
 	-- Digital Clocking Wizard using Xilinx Vivado creates 25Mhz pixel clock and 
 	-- 125MHz HDMI serial output clocks from 100MHz system clock. The Digital 

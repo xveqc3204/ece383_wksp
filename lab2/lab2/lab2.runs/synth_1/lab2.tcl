@@ -57,7 +57,10 @@ if {$::dispatch::connected} {
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
+set_param checkpoint.writeSynthRtdsInDcp 1
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a200tsbg484-1
 
@@ -83,12 +86,13 @@ read_vhdl -library xil_defaultlib {
   C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/new/bram_addr_counter.vhd
   C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/ece383_pkg.vhd
   C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/color_mapper.vhd
-  C:/Users/C27John.Alves/ECE383/ece383_wksp/hw4/hw4.srcs/sources_1/new/counter.vhd
+  C:/Users/C27John.Alves/ECE383/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/lab1_code/lab1_code.srcs/sources_1/imports/new/counter.vhd
   C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/dvid.vhdl
+  C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/new/flag_register.vhd
   C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/i2s_ctl.vhd
-  C:/Users/C27John.Alves/ECE383/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/numeric_stepper.vhd
   C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/lab2_datapath.vhdl
   C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/lab2_fsm.vhdl
+  C:/Users/C27John.Alves/ECE383/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/numeric_stepper.vhd
   C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/tdms.vhdl
   C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/trigger_detector.vhd
   C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/video.vhdl
@@ -98,10 +102,15 @@ read_vhdl -vhdl2008 -library xil_defaultlib {
   C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/vga.vhd
   C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/vga_signal_generator.vhd
 }
+read_ip -quiet C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1.xci
+set_property used_in_implementation false [get_files -all c:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.gen/sources_1/ip/clk_wiz_1_4/clk_wiz_1_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.gen/sources_1/ip/clk_wiz_1_4/clk_wiz_1.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.gen/sources_1/ip/clk_wiz_1_4/clk_wiz_1_ooc.xdc]
+
 read_ip -quiet C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-set_property used_in_implementation false [get_files -all c:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.gen/sources_1/ip/clk_wiz_0_2/clk_wiz_0_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.gen/sources_1/ip/clk_wiz_0_2/clk_wiz_0.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.gen/sources_1/ip/clk_wiz_0_2/clk_wiz_0_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -115,6 +124,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/constrs_1/imports/lab2_code_for_cadets_2026/Lab2.xdc
 set_property used_in_implementation false [get_files C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/constrs_1/imports/lab2_code_for_cadets_2026/Lab2.xdc]
 
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 
 read_checkpoint -auto_incremental -incremental C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/utils_1/imports/synth_1/Audio_Codec_Wrapper.dcp

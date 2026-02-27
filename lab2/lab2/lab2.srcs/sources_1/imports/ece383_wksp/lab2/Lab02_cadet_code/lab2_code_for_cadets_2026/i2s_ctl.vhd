@@ -293,4 +293,3 @@ begin
    WE_L_O <= WE_L_int when EN_RX_I = '1' else '0';
 
 end Behavioral;
-

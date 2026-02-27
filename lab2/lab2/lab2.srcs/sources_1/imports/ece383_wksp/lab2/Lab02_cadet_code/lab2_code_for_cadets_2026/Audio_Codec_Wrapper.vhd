@@ -89,12 +89,11 @@ architecture Behavioral of Audio_Codec_Wrapper is
     --------------------------------------------------------------------------
     -- Clock Wizard Component Declaration Using Xilinx Vivado 
     --------------------------------------------------------------------------
-    component clk_wiz_0 is
+    component clk_wiz_1 is
     Port (
         clk_in1 : in STD_LOGIC;
         clk_out1 : out STD_LOGIC; -- 12.288MHz ADAU1761 SigmaDSP audio codec master clock
         clk_out2 : out STD_LOGIC; -- 50MHz Audio Codec Serial Communications clock
-        clk_out3 : out STD_LOGIC; 
         resetn : in STD_LOGIC);   -- active low reset for Nexys Video
     end component;   
 	 
@@ -114,8 +113,6 @@ architecture Behavioral of Audio_Codec_Wrapper is
     signal s_readR : std_logic_vector(17 downto 0);
     signal count_stdLogicVector : std_logic_vector(9 downto 0);
     signal count: unsigned(9 downto 0);
-    
-    signal clk_unused : std_logic;
 	
 begin
     --------------------------------------------------------------------------
@@ -150,12 +147,11 @@ begin
             sda => sda,
             scl => scl
         ); 
-    audiocodec_master_clock: clk_wiz_0
+    audiocodec_master_clock: clk_wiz_1
         Port Map (
             clk_in1 => clk,
             clk_out1 => ac_mclk,        -- 12.288MHz ADAU1761 SigmaDSP audio codec master clock
             clk_out2 => clk_50,         -- 50MHz Audio Codec Serial Communications clock
-            clk_out3 => clk_unused, 
             resetn => reset_n);          -- active low reset for Nexys Video
 
 	audio_inout: i2s_ctl

@@ -1,0 +1,43 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.gen/sources_1/ip/clk_wiz_1_4/clk_wiz_1_sim_netlist.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'clk_wiz_1_clk_wiz_1_clk_wiz'
+INFO: [VRFC 10-3107] analyzing entity 'clk_wiz_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.gen/sources_1/ip/clk_wiz_0_2/clk_wiz_0_sim_netlist.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'clk_wiz_0_clk_wiz_0_clk_wiz'
+INFO: [VRFC 10-3107] analyzing entity 'clk_wiz_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/Audio_Codec_Wrapper.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Audio_Codec_Wrapper'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/TWICtl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'TWICtl'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/new/bram_addr_counter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'bram_addr_counter'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/ece383_pkg.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/color_mapper.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'color_mapper'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/hw4/hw4.srcs/sources_1/new/counter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'counter'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/dvid.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'dvid'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/new/flag_register.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'flag_register'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/i2s_ctl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'i2s_ctl'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/lab2.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'lab2'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/numeric_stepper.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'numeric_stepper'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/lab2_datapath.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'lab2_datapath'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/lab2_fsm.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'lab2_fsm'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/tdms.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'TDMS_encoder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/trigger_detector.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'trigger_detector'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/video.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'video'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/vga.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'vga'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.srcs/sources_1/imports/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/vga_signal_generator.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'vga_signal_generator'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/C27John.Alves/ECE383/ece383_wksp/lab2/lab2/lab2.sim/lab2_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'lab2_tb'

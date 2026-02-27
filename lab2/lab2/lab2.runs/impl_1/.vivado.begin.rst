@@ -1,45 +1,25 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="C27John.Alves" Host="C27-5CG3121G2J" Pid="24568" HostCore="16" HostMemory="016442740736">
+    <Process Command="vivado.bat" Owner="C27John.Alves" Host="C27-5CG3121G2J" Pid="11408" HostCore="16" HostMemory="016442740736">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="C27John.Alves" Host="C27-5CG3121G2J" Pid="23936" HostCore="16" HostMemory="016442740736">
+    <Process Command="vivado.bat" Owner="C27John.Alves" Host="C27-5CG3121G2J" Pid="25148" HostCore="16" HostMemory="016442740736">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="C27John.Alves" Host="C27-5CG3121G2J" Pid="8060" HostCore="16" HostMemory="016442740736">
+    <Process Command="vivado.bat" Owner="C27John.Alves" Host="C27-5CG3121G2J" Pid="16248" HostCore="16" HostMemory="016442740736">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="C27John.Alves" Host="C27-5CG3121G2J" Pid="2440" HostCore="16" HostMemory="016442740736">
+    <Process Command="vivado.bat" Owner="C27John.Alves" Host="C27-5CG3121G2J" Pid="2356" HostCore="16" HostMemory="016442740736">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="C27John.Alves" Host="C27-5CG3121G2J" Pid="23616" HostCore="16" HostMemory="016442740736">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="C27John.Alves" Host="C27-5CG3121G2J" Pid="26312" HostCore="16" HostMemory="016442740736">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="C27John.Alves" Host="C27-5CG3121G2J" Pid="26064" HostCore="16" HostMemory="016442740736">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="C27John.Alves" Host="C27-5CG3121G2J" Pid="26400" HostCore="16" HostMemory="016442740736">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="C27John.Alves" Host="C27-5CG3121G2J" Pid="11308" HostCore="16" HostMemory="016442740736">
+    <Process Command="vivado.bat" Owner="C27John.Alves" Host="C27-5CG3121G2J" Pid="32592" HostCore="16" HostMemory="016442740736">
     </Process>
 </ProcessHandle>

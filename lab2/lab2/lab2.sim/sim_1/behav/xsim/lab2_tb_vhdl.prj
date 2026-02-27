@@ -1,0 +1,30 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../lab2.gen/sources_1/ip/clk_wiz_1_4/clk_wiz_1_sim_netlist.vhdl" \
+"../../../../lab2.gen/sources_1/ip/clk_wiz_0_2/clk_wiz_0_sim_netlist.vhdl" \
+"../../../../lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/Audio_Codec_Wrapper.vhd" \
+"../../../../lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/TWICtl.vhd" \
+"../../../../lab2.srcs/sources_1/new/bram_addr_counter.vhd" \
+"../../../../lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/ece383_pkg.vhd" \
+"../../../../lab2.srcs/sources_1/imports/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/color_mapper.vhd" \
+"../../../../../../hw4/hw4.srcs/sources_1/new/counter.vhd" \
+"../../../../lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/dvid.vhdl" \
+"../../../../lab2.srcs/sources_1/new/flag_register.vhd" \
+"../../../../lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/i2s_ctl.vhd" \
+"../../../../lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/lab2.vhd" \
+"../../../../../../lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/numeric_stepper.vhd" \
+"../../../../lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/lab2_datapath.vhdl" \
+"../../../../lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/lab2_fsm.vhdl" \
+"../../../../lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/tdms.vhdl" \
+"../../../../lab2.srcs/sources_1/imports/ece383_wksp/lab2/Lab02_cadet_code/lab2_code_for_cadets_2026/trigger_detector.vhd" \
+"../../../../lab2.srcs/sources_1/imports/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/video.vhdl" \
+
+vhdl2008 xil_defaultlib  \
+"../../../../lab2.srcs/sources_1/imports/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/vga.vhd" \
+"../../../../lab2.srcs/sources_1/imports/ece383_wksp/lab1/Lab1_Cadet_Code_2026/Lab1_Cadet_Code_2026/vga_signal_generator.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../lab2_tb.vhd" \
+
+# Do not sort compile order
+nosort

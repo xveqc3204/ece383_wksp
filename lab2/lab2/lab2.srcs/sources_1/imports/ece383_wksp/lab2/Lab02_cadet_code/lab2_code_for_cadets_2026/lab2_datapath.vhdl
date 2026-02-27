@@ -58,9 +58,12 @@ architecture lab2_datapath_arch of lab2_datapath is
 	end component;
 	
 	component flag_register
-    Port (set : in STD_LOGIC;
-          clear : in STD_LOGIC;                                   
-          q : out STD_LOGIC);
+    Port ( clk: in std_logic;
+           reset_n: in std_logic;
+           set: in std_logic;
+           clear: in std_logic;
+           Q: out std_logic
+          );
     end component;
     
     signal sw_ready: std_logic;
@@ -73,17 +76,16 @@ architecture lab2_datapath_arch of lab2_datapath is
     
     signal counter_reset : std_logic;
     signal ch1, ch2: channel_t;       
-    signal is_live: std_logic;    
+    signal is_live: std_logic := '1';    
     signal trigger: trigger_t;
-    signal num_stepper_t, num_stepper_v : signed(10 downto 0);
     signal writeCntr: unsigned (9 downto 0);
     signal position: coordinate_t;
     signal reset: std_logic;   
     signal write_address: unsigned(9 downto 0);
+    signal wrENB : std_logic;
     
     --bram_addr_counter flags for readability
     constant START_COL : unsigned(9 downto 0) := to_unsigned(20,10);
-    constant END_COL   : unsigned(9 downto 0) := to_unsigned(659,10);
     signal write_roll  : std_logic;
     
     --holds 1 bit cw_write_en as a 2 bit representation (by anding them together later) so I can properly map to WE port for the left and right channel memory
@@ -99,7 +101,7 @@ architecture lab2_datapath_arch of lab2_datapath is
     
    -- Trigger
     signal time_trigger_value, volt_trigger_value : signed(10 downto 0);
-
+    signal monitored_signal: unsigned(8 downto 0);
     
 begin
 
@@ -108,8 +110,8 @@ begin
     --Scaled down version (9 bit slice)
     ch1.active <= '1' when (apply_offset(ch1.from_bram(15 downto 7)) = position.row) else '0';
     ch2.active <= '1' when (apply_offset(ch2.from_bram(15 downto 7)) = position.row) else '0';
-
-
+    
+    
 	-------------------------------------------------------------------------------
 	--  Buffer a copy of the sample memory to look for positive trigger crossing
 	--  "Loop back" digitized audio input to the output to confirm interface is working
@@ -147,20 +149,26 @@ begin
     
     -- Send the unsigned current sample to the BRAM
     -- Add code here 
-    ch1.to_bram <= ch1.current_sample;
-    ch2.to_bram <= ch2.current_sample;	
+    ch1.to_bram <= ch1.current_sample when exSel = '0' else exLBus;
+    ch2.to_bram <= ch2.current_sample when exSel = '0' else exRBus;
+    
+    -- Address mux
+    write_address <= writeCntr when exSel = '0' else unsigned(exWrAddr);
+	
+	-- Write enable mux
+    wrENB <= cw_write_en when exSel = '0' else exWen;
     
     -- Need logic for the FLAG register
 	-- Add code here
     flag_register_dp : flag_register
     port map (
-        set     => sw_ready,
-        clear   => flagClear,                                   
-        q       => flagQ  
-    );
-    
+       clk => clk,
+	   reset_n => reset_n,
+	   set => sw_ready,
+	   clear => flagClear,
+	   Q => flagQ 
+    );   
 
-	
     ------------------------------------------------------------------------------
 	-- If a button has been pressed then increment of decrement the trigger time and Volt
 	--    should this be debounced?
@@ -168,7 +176,7 @@ begin
 	------------------------------------------------------------------------------
     
     -- Add 2 numeric steppers
-	   v_trigger_stepper : entity work.numeric_stepper
+	   v_trigger_stepper : numeric_stepper
        generic map (
            num_bits  =>  11,
            max_value => 420,
@@ -183,7 +191,7 @@ begin
            down    => btn(UP),                   
            q       => volt_trigger_value  
        );
-       t_trigger_stepper : entity work.numeric_stepper
+       t_trigger_stepper : numeric_stepper
        generic map (
            num_bits  =>  11,
            max_value => 620,
@@ -211,35 +219,32 @@ begin
 	-- Add code here.  Use a previously built counter.
 	BRAM_counter: entity work.bram_addr_counter
     generic map (
-        num_bits => 10,
-        max_value => 1023,
-        load_value => 0
+        num_bits => 10
     )
     port map (
         clk => clk,
         reset_n => reset_n,
         ctrl => cw_counter_control,
-        D => START_COL,
-        roll => write_roll,
+        D => to_unsigned(20, 10),
         Q => writeCntr
     );
 
-sw_last_address <= '1' when writeCntr = to_unsigned(1023,10) else '0';
-sw(1) <= sw_last_address;
-
+    sw_last_address <= '1' when writeCntr = to_unsigned(620,10) else '0';
+    
 	-------------------------------------------------------------------------------
 	-- Triggering Logic: A positive crossing of the trigger occurs when the previous value is 
 	--	less than the trigger and the current value is greater than or equal to
 	-- the trigger.  Set the status word to alert the FSM that it should start 
 	-- recording the samples.
-	-------------------------------------------------------------------------------		
+	-------------------------------------------------------------------------------	
+	monitored_signal <= unsigned(apply_offset(ch1.current_sample(15 downto 7)));	
 	trig_detect : trigger_detector
     port map (
         clk  => clk,
         reset_n => reset_n,
         threshold => trigger.v,
         ready => sw_ready,
-        monitored_signal => unsigned(ch1.current_sample),
+        monitored_signal => monitored_signal,
         crossed_trigger => sw_trigger
     );
 	
@@ -261,9 +266,7 @@ sw(1) <= sw_last_address;
 
 -- Audio Codec stuff goes here
 
-is_live <= '0'; --  '0' simulate audio; '1' live audio
---is_live <= btn(IS_LIVE_SWITCH);             
-                  
+is_live <= switch(3); --  '0' simulate audio; '1' live audio                  
 
 Audio_Codec : Audio_Codec_Wrapper
     Port map ( clk => clk,
@@ -282,12 +285,7 @@ Audio_Codec : Audio_Codec_Wrapper
         sda => sda,
         sim_live => is_live);  --  '0' simulate audio; '1' live audio
 
-
     -- BRAM stuff goes here
-    
-    -- becomes "11" when cw_write_en='1'
-    bram_we_l <= cw_write_en & cw_write_en;  --turns 1 bit into 2 bits so I can properly map to WE port for the left;
-    bram_we_r <= cw_write_en & cw_write_en;  --turns 1 bit into 2 bits so I can properly map to WE port for the right;
     
 	reset <= not reset_n;
 	
@@ -375,10 +373,10 @@ Audio_Codec : Audio_Codec_Wrapper
             RDEN => '1',                    -- read enable
             REGCE => '1',                   -- 1-bit input read output register enable
             DI => ch1.to_bram,                   -- Input data port, width defined by WRITE_WIDTH parameter
-            WE => bram_we_l,                  -- Input write enable, width defined by write port depth
-            WRADDR => std_logic_vector(writeCntr),      -- Input write address, width defined by write port depth
+            WE => "11",                  -- Input write enable, width defined by write port depth
+            WRADDR => std_logic_vector(write_address),      -- Input write address, width defined by write port depth
             WRCLK => clk,                   -- 1-bit input write clock
-            WREN => cw_write_en);              -- 1-bit input write port enable
+            WREN => wrENB);              -- 1-bit input write port enable
             -- End of BRAM_SDP_MACRO_inst instantiation
 
 
@@ -467,15 +465,20 @@ Audio_Codec : Audio_Codec_Wrapper
             RDEN => '1',
             REGCE => '1',                   -- 1-bit input read output register enable
             DI => ch2.to_bram,                    -- Input data port, width defined by WRITE_WIDTH parameter
-            WE => bram_we_r,                        -- Input write enable, width defined by write port depth
-            WRADDR => std_logic_vector(writeCntr),                -- Input write address, width defined by write port depth
+            WE => "11",                        -- Input write enable, width defined by write port depth
+            WRADDR => std_logic_vector(write_address),                -- Input write address, width defined by write port depth
             WRCLK => clk,                    -- 1-bit input write clock
-            WREN => cw_write_en);                -- 1-bit input write port enable
+            WREN => wrENB);                -- 1-bit input write port enable
             -- End of BRAM_SDP_MACRO_inst instantiation
-
+            
+   
     sw(0) <= sw_ready;
+    sw(1) <= sw_last_address;
     sw(2) <= sw_trigger;
---    sw(1) <= sw_last_address; set above
+    
+    --
+    Lbus_out <= std_logic_vector(ch1.current_sample);
+    Rbus_out <= std_logic_vector(ch2.current_sample);
     
     cw_counter_control <= cw(1 downto 0);
     cw_write_en <= cw(2);

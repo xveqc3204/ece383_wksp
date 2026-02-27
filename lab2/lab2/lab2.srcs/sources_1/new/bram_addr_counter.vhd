@@ -33,49 +33,42 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity bram_addr_counter is
     generic (
-        num_bits  : integer := 10;
-        max_value : integer := 1023;
-        load_value: integer := 0
+        num_bits  : integer := 10
     );
     port ( clk : in STD_LOGIC;
            reset_n : in STD_LOGIC;
            ctrl : in STD_LOGIC_VECTOR(1 downto 0);
-           roll : out STD_LOGIC;
            D : in  unsigned(num_bits-1 downto 0);
            Q : out unsigned (num_bits-1 downto 0));
 end bram_addr_counter;
 
 architecture Behavioral of bram_addr_counter is
-    signal processQ : unsigned(num_bits-1 downto 0) := to_unsigned(load_value, num_bits);
-    constant MAX_U  : unsigned(num_bits-1 downto 0) := to_unsigned(max_value, num_bits);
+    signal processQ : unsigned(num_bits-1 downto 0);
 begin
 
   process(clk)
   begin
     if rising_edge(clk) then
       if reset_n = '0' then
-          processQ <= to_unsigned(load_value, num_bits);
+          processQ <= (others => '0');
       else 
       --Looked up switch case syntax using online resources
           case ctrl is
-            when "00" => --hold
-                processQ <= processQ;
+            when "00" =>
+                null; --found online, another way to hold
             when "01" => --count
-                if processQ = MAX_U then --stop counting at max value
-                    processQ <= to_unsigned(load_value, num_bits);
-                else
-                    processQ <= processQ + 1;
-                end if;
+                processQ <= processQ + 1;
             when "10" => -- load
-                processQ <= D;
+                processQ <= unsigned(D);
+            when "11" =>
+                processQ <= (others => '0');
             when others =>
-                processQ <= to_unsigned(load_value, num_bits);
+                null;
            end case;
         end if;
       end if;
     end process;
 
-  roll <= '1' when (processQ = MAX_U and ctrl = "01") else '0';
-  Q    <= processQ;
+  Q <= processQ;
 
 end Behavioral;

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date         : Tue Feb 17 21:05:51 2026
+| Date         : Mon Feb 23 13:04:37 2026
 | Host         : C27-5CG3121G2J running 64-bit major release  (build 9200)
 | Command      : report_clock_utilization -file lab2_clock_utilization_routed.rpt
 | Design       : lab2
@@ -49,17 +49,17 @@ Table of Contents
 2. Global Clock Resources
 -------------------------
 
-+-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+----------------------+---------------------------------------------------------------------+------------------------------------------------------------------------------+
-| Global Id | Source Id | Driver Type/Pin | Constraint | Site          | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock                | Driver Pin                                                          | Net                                                                          |
-+-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+----------------------+---------------------------------------------------------------------+------------------------------------------------------------------------------+
-| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y2 | n/a          |                 3 |         234 |               0 |              |                      | clk_IBUF_BUFG_inst/O                                                | clk_IBUF_BUFG                                                                |
-| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y3 | n/a          |                 1 |         115 |               0 |        8.000 | clk_out2_clk_wiz_0   | datapath/Audio_Codec/audiocodec_master_clock/inst/clkout2_buf/O     | datapath/Audio_Codec/audiocodec_master_clock/inst/clk_out2                   |
-| g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y4 | n/a          |                 1 |          83 |               0 |       40.000 | clk_out1_clk_wiz_0_1 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkout1_buf/O | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out1               |
-| g3        | src3      | BUFG/O          | None       | BUFGCTRL_X0Y0 | n/a          |                 1 |          44 |               0 |        8.000 | clk_out2_clk_wiz_0_1 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkout2_buf/O | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out2               |
-| g4        | src4      | BUFG/O          | None       | BUFGCTRL_X0Y5 | n/a          |                 1 |           1 |               0 |       10.000 | clkfbout_clk_wiz_0   | datapath/Audio_Codec/audiocodec_master_clock/inst/clkf_buf/O        | datapath/Audio_Codec/audiocodec_master_clock/inst/clkfbout_buf_clk_wiz_0     |
-| g5        | src5      | BUFG/O          | None       | BUFGCTRL_X0Y6 | n/a          |                 1 |           1 |               0 |       10.000 | clkfbout_clk_wiz_0_1 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkf_buf/O    | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkfbout_buf_clk_wiz_0 |
-| g6        | src6      | BUFG/O          | None       | BUFGCTRL_X0Y1 | n/a          |                 1 |           0 |               1 |       40.000 | clk_out1_clk_wiz_0   | datapath/Audio_Codec/audiocodec_master_clock/inst/clkout1_buf/O     | datapath/Audio_Codec/audiocodec_master_clock/inst/clk_out1                   |
-+-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+----------------------+---------------------------------------------------------------------+------------------------------------------------------------------------------+
++-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+--------------------+---------------------------------------------------------------------+------------------------------------------------------------------------------+
+| Global Id | Source Id | Driver Type/Pin | Constraint | Site          | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock              | Driver Pin                                                          | Net                                                                          |
++-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+--------------------+---------------------------------------------------------------------+------------------------------------------------------------------------------+
+| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y2 | n/a          |                 3 |         315 |               0 |              |                    | clk_IBUF_BUFG_inst/O                                                | clk_IBUF_BUFG                                                                |
+| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y3 | n/a          |                 1 |         115 |               0 |       20.000 | clk_out2_clk_wiz_1 | datapath/Audio_Codec/audiocodec_master_clock/inst/clkout2_buf/O     | datapath/Audio_Codec/audiocodec_master_clock/inst/clk_out2                   |
+| g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y4 | n/a          |                 1 |          83 |               0 |       40.000 | clk_out1_clk_wiz_0 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkout1_buf/O | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out1               |
+| g3        | src3      | BUFG/O          | None       | BUFGCTRL_X0Y0 | n/a          |                 1 |          44 |               0 |        8.000 | clk_out2_clk_wiz_0 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkout2_buf/O | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out2               |
+| g4        | src4      | BUFG/O          | None       | BUFGCTRL_X0Y5 | n/a          |                 1 |           1 |               0 |       10.000 | clkfbout_clk_wiz_1 | datapath/Audio_Codec/audiocodec_master_clock/inst/clkf_buf/O        | datapath/Audio_Codec/audiocodec_master_clock/inst/clkfbout_buf_clk_wiz_1     |
+| g5        | src5      | BUFG/O          | None       | BUFGCTRL_X0Y6 | n/a          |                 1 |           1 |               0 |       10.000 | clkfbout_clk_wiz_0 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkf_buf/O    | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkfbout_buf_clk_wiz_0 |
+| g6        | src6      | BUFG/O          | None       | BUFGCTRL_X0Y1 | n/a          |                 1 |           0 |               1 |       81.375 | clk_out1_clk_wiz_1 | datapath/Audio_Codec/audiocodec_master_clock/inst/clkout1_buf/O     | datapath/Audio_Codec/audiocodec_master_clock/inst/clk_out1                   |
++-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+--------------------+---------------------------------------------------------------------+------------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
 
@@ -67,17 +67,17 @@ Table of Contents
 3. Global Clock Source Details
 ------------------------------
 
-+-----------+-----------+---------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+----------------------+------------------------------------------------------------------------------+--------------------------------------------------------------------------+
-| Source Id | Global Id | Driver Type/Pin     | Constraint | Site            | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock         | Driver Pin                                                                   | Net                                                                      |
-+-----------+-----------+---------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+----------------------+------------------------------------------------------------------------------+--------------------------------------------------------------------------+
-| src0      | g0        | IBUF/O              | IOB_X1Y124 | IOB_X1Y124      | X1Y2         |           1 |               0 |                     |                      | clk_IBUF_inst/O                                                              | clk_IBUF                                                                 |
-| src1      | g1        | MMCME2_ADV/CLKOUT1  | None       | MMCME2_ADV_X0Y2 | X0Y2         |           1 |               0 |               8.000 | clk_out2_clk_wiz_0   | datapath/Audio_Codec/audiocodec_master_clock/inst/mmcm_adv_inst/CLKOUT1      | datapath/Audio_Codec/audiocodec_master_clock/inst/clk_out2_clk_wiz_0     |
-| src2      | g2        | MMCME2_ADV/CLKOUT0  | None       | MMCME2_ADV_X1Y0 | X1Y0         |           1 |               0 |              40.000 | clk_out1_clk_wiz_0_1 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/mmcm_adv_inst/CLKOUT0  | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out1_clk_wiz_0 |
-| src3      | g3        | MMCME2_ADV/CLKOUT1  | None       | MMCME2_ADV_X1Y0 | X1Y0         |           1 |               0 |               8.000 | clk_out2_clk_wiz_0_1 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/mmcm_adv_inst/CLKOUT1  | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out2_clk_wiz_0 |
-| src4      | g4        | MMCME2_ADV/CLKFBOUT | None       | MMCME2_ADV_X0Y2 | X0Y2         |           1 |               0 |              10.000 | clkfbout_clk_wiz_0   | datapath/Audio_Codec/audiocodec_master_clock/inst/mmcm_adv_inst/CLKFBOUT     | datapath/Audio_Codec/audiocodec_master_clock/inst/clkfbout_clk_wiz_0     |
-| src5      | g5        | MMCME2_ADV/CLKFBOUT | None       | MMCME2_ADV_X1Y0 | X1Y0         |           1 |               0 |              10.000 | clkfbout_clk_wiz_0_1 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/mmcm_adv_inst/CLKFBOUT | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkfbout_clk_wiz_0 |
-| src6      | g6        | MMCME2_ADV/CLKOUT0  | None       | MMCME2_ADV_X0Y2 | X0Y2         |           1 |               0 |              40.000 | clk_out1_clk_wiz_0   | datapath/Audio_Codec/audiocodec_master_clock/inst/mmcm_adv_inst/CLKOUT0      | datapath/Audio_Codec/audiocodec_master_clock/inst/clk_out1_clk_wiz_0     |
-+-----------+-----------+---------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+----------------------+------------------------------------------------------------------------------+--------------------------------------------------------------------------+
++-----------+-----------+---------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+--------------------+------------------------------------------------------------------------------+--------------------------------------------------------------------------+
+| Source Id | Global Id | Driver Type/Pin     | Constraint | Site            | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock       | Driver Pin                                                                   | Net                                                                      |
++-----------+-----------+---------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+--------------------+------------------------------------------------------------------------------+--------------------------------------------------------------------------+
+| src0      | g0        | IBUF/O              | IOB_X1Y124 | IOB_X1Y124      | X1Y2         |           1 |               0 |                     |                    | clk_IBUF_inst/O                                                              | clk_IBUF                                                                 |
+| src1      | g1        | MMCME2_ADV/CLKOUT1  | None       | MMCME2_ADV_X0Y2 | X0Y2         |           1 |               0 |              20.000 | clk_out2_clk_wiz_1 | datapath/Audio_Codec/audiocodec_master_clock/inst/mmcm_adv_inst/CLKOUT1      | datapath/Audio_Codec/audiocodec_master_clock/inst/clk_out2_clk_wiz_1     |
+| src2      | g2        | MMCME2_ADV/CLKOUT0  | None       | MMCME2_ADV_X1Y0 | X1Y0         |           1 |               0 |              40.000 | clk_out1_clk_wiz_0 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/mmcm_adv_inst/CLKOUT0  | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out1_clk_wiz_0 |
+| src3      | g3        | MMCME2_ADV/CLKOUT1  | None       | MMCME2_ADV_X1Y0 | X1Y0         |           1 |               0 |               8.000 | clk_out2_clk_wiz_0 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/mmcm_adv_inst/CLKOUT1  | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out2_clk_wiz_0 |
+| src4      | g4        | MMCME2_ADV/CLKFBOUT | None       | MMCME2_ADV_X0Y2 | X0Y2         |           1 |               0 |              10.000 | clkfbout_clk_wiz_1 | datapath/Audio_Codec/audiocodec_master_clock/inst/mmcm_adv_inst/CLKFBOUT     | datapath/Audio_Codec/audiocodec_master_clock/inst/clkfbout_clk_wiz_1     |
+| src5      | g5        | MMCME2_ADV/CLKFBOUT | None       | MMCME2_ADV_X1Y0 | X1Y0         |           1 |               0 |              10.000 | clkfbout_clk_wiz_0 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/mmcm_adv_inst/CLKFBOUT | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkfbout_clk_wiz_0 |
+| src6      | g6        | MMCME2_ADV/CLKOUT0  | None       | MMCME2_ADV_X0Y2 | X0Y2         |           1 |               0 |              81.375 | clk_out1_clk_wiz_1 | datapath/Audio_Codec/audiocodec_master_clock/inst/mmcm_adv_inst/CLKOUT0      | datapath/Audio_Codec/audiocodec_master_clock/inst/clk_out1_clk_wiz_1     |
++-----------+-----------+---------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+--------------------+------------------------------------------------------------------------------+--------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
 
@@ -95,7 +95,7 @@ Table of Contents
 | X0Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  4200 |    0 |  1400 |    0 |   100 |    0 |    50 |    0 |   100 |
 | X1Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  4000 |    0 |  1400 |    0 |    80 |    0 |    40 |    0 |    80 |
 | X0Y2              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  3600 |    0 |  1400 |    0 |   100 |    0 |    50 |    0 |   100 |
-| X1Y2              |    5 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    4 |    50 |  466 |  4000 |  183 |  1400 |    1 |    80 |    0 |    40 |    0 |    80 |
+| X1Y2              |    5 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    4 |    50 |  547 |  4000 |  218 |  1400 |    2 |    80 |    0 |    40 |    0 |    80 |
 | X0Y3              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  3600 |    0 |  1400 |    0 |   100 |    0 |    50 |    0 |   100 |
 | X1Y3              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  4000 |    0 |  1400 |    0 |    80 |    0 |    40 |    0 |    80 |
 | X0Y4              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     1 |    0 |    50 |    0 |    50 |    0 |  2550 |    0 |   750 |    0 |    50 |    0 |    25 |    0 |    60 |
@@ -125,7 +125,7 @@ All Modules
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+---------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net           |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+---------------+
-| g0        | BUFG/O          | n/a               |       |             |               |         232 |        0 |              2 |        0 | clk_IBUF_BUFG |
+| g0        | BUFG/O          | n/a               |       |             |               |         313 |        0 |              2 |        0 | clk_IBUF_BUFG |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+---------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -138,7 +138,7 @@ All Modules
 +----+----+------+-----------------------+
 | Y4 |  0 |    0 |                     - |
 | Y3 |  0 |    0 |                     - |
-| Y2 |  1 |  232 |                     0 |
+| Y2 |  1 |  313 |                     0 |
 | Y1 |  0 |    0 |                     - |
 | Y0 |  0 |    1 |                     0 |
 +----+----+------+-----------------------+
@@ -147,11 +147,11 @@ All Modules
 7. Device Cell Placement Summary for Global Clock g1
 ----------------------------------------------------
 
-+-----------+-----------------+-------------------+--------------------+-------------+---------------+-------------+----------+----------------+----------+------------------------------------------------------------+
-| Global Id | Driver Type/Pin | Driver Region (D) | Clock              | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                        |
-+-----------+-----------------+-------------------+--------------------+-------------+---------------+-------------+----------+----------------+----------+------------------------------------------------------------+
-| g1        | BUFG/O          | n/a               | clk_out2_clk_wiz_0 |       8.000 | {0.000 4.000} |         115 |        0 |              0 |        0 | datapath/Audio_Codec/audiocodec_master_clock/inst/clk_out2 |
-+-----------+-----------------+-------------------+--------------------+-------------+---------------+-------------+----------+----------------+----------+------------------------------------------------------------+
++-----------+-----------------+-------------------+--------------------+-------------+----------------+-------------+----------+----------------+----------+------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock              | Period (ns) | Waveform (ns)  | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                        |
++-----------+-----------------+-------------------+--------------------+-------------+----------------+-------------+----------+----------------+----------+------------------------------------------------------------+
+| g1        | BUFG/O          | n/a               | clk_out2_clk_wiz_1 |      20.000 | {0.000 10.000} |         115 |        0 |              0 |        0 | datapath/Audio_Codec/audiocodec_master_clock/inst/clk_out2 |
++-----------+-----------------+-------------------+--------------------+-------------+----------------+-------------+----------+----------------+----------+------------------------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
 *** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
@@ -172,11 +172,11 @@ All Modules
 8. Device Cell Placement Summary for Global Clock g2
 ----------------------------------------------------
 
-+-----------+-----------------+-------------------+----------------------+-------------+----------------+-------------+----------+----------------+----------+----------------------------------------------------------------+
-| Global Id | Driver Type/Pin | Driver Region (D) | Clock                | Period (ns) | Waveform (ns)  | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                            |
-+-----------+-----------------+-------------------+----------------------+-------------+----------------+-------------+----------+----------------+----------+----------------------------------------------------------------+
-| g2        | BUFG/O          | n/a               | clk_out1_clk_wiz_0_1 |      40.000 | {0.000 20.000} |          83 |        0 |              0 |        0 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out1 |
-+-----------+-----------------+-------------------+----------------------+-------------+----------------+-------------+----------+----------------+----------+----------------------------------------------------------------+
++-----------+-----------------+-------------------+--------------------+-------------+----------------+-------------+----------+----------------+----------+----------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock              | Period (ns) | Waveform (ns)  | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                            |
++-----------+-----------------+-------------------+--------------------+-------------+----------------+-------------+----------+----------------+----------+----------------------------------------------------------------+
+| g2        | BUFG/O          | n/a               | clk_out1_clk_wiz_0 |      40.000 | {0.000 20.000} |          83 |        0 |              0 |        0 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out1 |
++-----------+-----------------+-------------------+--------------------+-------------+----------------+-------------+----------+----------------+----------+----------------------------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
 *** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
@@ -197,11 +197,11 @@ All Modules
 9. Device Cell Placement Summary for Global Clock g3
 ----------------------------------------------------
 
-+-----------+-----------------+-------------------+----------------------+-------------+---------------+-------------+----------+----------------+----------+----------------------------------------------------------------+
-| Global Id | Driver Type/Pin | Driver Region (D) | Clock                | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                            |
-+-----------+-----------------+-------------------+----------------------+-------------+---------------+-------------+----------+----------------+----------+----------------------------------------------------------------+
-| g3        | BUFG/O          | n/a               | clk_out2_clk_wiz_0_1 |       8.000 | {0.000 4.000} |          44 |        0 |              0 |        0 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out2 |
-+-----------+-----------------+-------------------+----------------------+-------------+---------------+-------------+----------+----------------+----------+----------------------------------------------------------------+
++-----------+-----------------+-------------------+--------------------+-------------+---------------+-------------+----------+----------------+----------+----------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock              | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                            |
++-----------+-----------------+-------------------+--------------------+-------------+---------------+-------------+----------+----------------+----------+----------------------------------------------------------------+
+| g3        | BUFG/O          | n/a               | clk_out2_clk_wiz_0 |       8.000 | {0.000 4.000} |          44 |        0 |              0 |        0 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out2 |
++-----------+-----------------+-------------------+--------------------+-------------+---------------+-------------+----------+----------------+----------+----------------------------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
 *** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
@@ -225,7 +225,7 @@ All Modules
 +-----------+-----------------+-------------------+--------------------+-------------+---------------+-------------+----------+----------------+----------+--------------------------------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock              | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                      |
 +-----------+-----------------+-------------------+--------------------+-------------+---------------+-------------+----------+----------------+----------+--------------------------------------------------------------------------+
-| g4        | BUFG/O          | n/a               | clkfbout_clk_wiz_0 |      10.000 | {0.000 5.000} |           0 |        0 |              1 |        0 | datapath/Audio_Codec/audiocodec_master_clock/inst/clkfbout_buf_clk_wiz_0 |
+| g4        | BUFG/O          | n/a               | clkfbout_clk_wiz_1 |      10.000 | {0.000 5.000} |           0 |        0 |              1 |        0 | datapath/Audio_Codec/audiocodec_master_clock/inst/clkfbout_buf_clk_wiz_1 |
 +-----------+-----------------+-------------------+--------------------+-------------+---------------+-------------+----------+----------------+----------+--------------------------------------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -247,11 +247,11 @@ All Modules
 11. Device Cell Placement Summary for Global Clock g5
 -----------------------------------------------------
 
-+-----------+-----------------+-------------------+----------------------+-------------+---------------+-------------+----------+----------------+----------+------------------------------------------------------------------------------+
-| Global Id | Driver Type/Pin | Driver Region (D) | Clock                | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                          |
-+-----------+-----------------+-------------------+----------------------+-------------+---------------+-------------+----------+----------------+----------+------------------------------------------------------------------------------+
-| g5        | BUFG/O          | n/a               | clkfbout_clk_wiz_0_1 |      10.000 | {0.000 5.000} |           0 |        0 |              1 |        0 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkfbout_buf_clk_wiz_0 |
-+-----------+-----------------+-------------------+----------------------+-------------+---------------+-------------+----------+----------------+----------+------------------------------------------------------------------------------+
++-----------+-----------------+-------------------+--------------------+-------------+---------------+-------------+----------+----------------+----------+------------------------------------------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock              | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                          |
++-----------+-----------------+-------------------+--------------------+-------------+---------------+-------------+----------+----------------+----------+------------------------------------------------------------------------------+
+| g5        | BUFG/O          | n/a               | clkfbout_clk_wiz_0 |      10.000 | {0.000 5.000} |           0 |        0 |              1 |        0 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkfbout_buf_clk_wiz_0 |
++-----------+-----------------+-------------------+--------------------+-------------+---------------+-------------+----------+----------------+----------+------------------------------------------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
 *** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
@@ -275,7 +275,7 @@ All Modules
 +-----------+-----------------+-------------------+--------------------+-------------+----------------+-------------+----------+----------------+----------+------------------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock              | Period (ns) | Waveform (ns)  | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                        |
 +-----------+-----------------+-------------------+--------------------+-------------+----------------+-------------+----------+----------------+----------+------------------------------------------------------------+
-| g6        | BUFG/O          | n/a               | clk_out1_clk_wiz_0 |      40.000 | {0.000 20.000} |           0 |        1 |              0 |        0 | datapath/Audio_Codec/audiocodec_master_clock/inst/clk_out1 |
+| g6        | BUFG/O          | n/a               | clk_out1_clk_wiz_1 |      81.375 | {0.000 40.688} |           0 |        1 |              0 |        0 | datapath/Audio_Codec/audiocodec_master_clock/inst/clk_out1 |
 +-----------+-----------------+-------------------+--------------------+-------------+----------------+-------------+----------+----------------+----------+------------------------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -315,7 +315,7 @@ All Modules
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                      |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 | g0        | n/a   | BUFG/O          | None       |           1 |               0 |  0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | clk_IBUF_BUFG                                                            |
-| g4        | n/a   | BUFG/O          | None       |           1 |               0 |  0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | datapath/Audio_Codec/audiocodec_master_clock/inst/clkfbout_buf_clk_wiz_0 |
+| g4        | n/a   | BUFG/O          | None       |           1 |               0 |  0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | datapath/Audio_Codec/audiocodec_master_clock/inst/clkfbout_buf_clk_wiz_1 |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -328,7 +328,7 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                            |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+----------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |         232 |               0 | 228 |           0 |    1 |   0 |  0 |    0 |   0 |       0 | clk_IBUF_BUFG                                                  |
+| g0        | n/a   | BUFG/O          | None       |         313 |               0 | 309 |           0 |    2 |   0 |  0 |    0 |   0 |       0 | clk_IBUF_BUFG                                                  |
 | g1        | n/a   | BUFG/O          | None       |         115 |               0 | 115 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | datapath/Audio_Codec/audiocodec_master_clock/inst/clk_out2     |
 | g2        | n/a   | BUFG/O          | None       |          83 |               0 |  83 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out1 |
 | g3        | n/a   | BUFG/O          | None       |          44 |               0 |  40 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out2 |
