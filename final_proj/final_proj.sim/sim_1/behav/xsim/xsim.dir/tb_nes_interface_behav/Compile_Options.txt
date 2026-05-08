@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "tb_nes_interface_behav" "xil_defaultlib.tb_nes_interface" -log "elaborate.log" 

@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "tb_pwm_gen_behav" "xil_defaultlib.tb_pwm_gen" -log "elaborate.log" 

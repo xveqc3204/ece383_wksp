@@ -1,0 +1,7 @@
+Time resolution is 1 ps
+Note: tb_top_integration: BEGIN
+Time: 0 ps  Iteration: 0  Process: /tb_top_integration/sim  File: C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sim_1/new/tb_top_integration.vhd
+Note: phase 1 (reset complete) - pwm_out should be near 0% duty
+Time: 50500 ns  Iteration: 0  Process: /tb_top_integration/sim  File: C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sim_1/new/tb_top_integration.vhd
+Note: phase 2: pressing Start
+Time: 50500 ns  Iteration: 0  Process: /tb_top_integration/sim  File: C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sim_1/new/tb_top_integration.vhd

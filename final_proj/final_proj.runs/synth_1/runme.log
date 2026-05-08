@@ -1,0 +1,337 @@
+
+*** Running vivado
+    with args -log top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+
+
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Thu May  7 07:00:03 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source top.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/utils_1/imports/synth_1/top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/utils_1/imports/synth_1/top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top top -part xc7a200tsbg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Device 21-403] Loading part xc7a200tsbg484-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 22720
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1005.852 ; gain = 468.781
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'top' [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/top.vhd:239]
+	Parameter half_period_cycles bound to: 1200 - type: integer 
+	Parameter frame_gap_cycles bound to: 1600000 - type: integer 
+INFO: [Synth 8-3491] module 'nes_interface' declared at 'C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/nes_interface.vhd:210' bound to instance 'nes' of component 'nes_interface' [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/top.vhd:346]
+INFO: [Synth 8-638] synthesizing module 'nes_interface' [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/nes_interface.vhd:223]
+	Parameter half_period_cycles bound to: 1200 - type: integer 
+	Parameter frame_gap_cycles bound to: 1600000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'nes_interface' (0#1) [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/nes_interface.vhd:223]
+INFO: [Synth 8-3491] module 'button_reg' declared at 'C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/button_reg.vhd:34' bound to instance 'btn_reg' of component 'button_reg' [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/top.vhd:359]
+INFO: [Synth 8-638] synthesizing module 'button_reg' [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/button_reg.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'button_reg' (0#1) [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/button_reg.vhd:41]
+	Parameter home_0 bound to: 150000 - type: integer 
+	Parameter home_1 bound to: 150000 - type: integer 
+	Parameter home_2 bound to: 150000 - type: integer 
+	Parameter home_3 bound to: 150000 - type: integer 
+	Parameter home_4 bound to: 150000 - type: integer 
+	Parameter home_5 bound to: 150000 - type: integer 
+INFO: [Synth 8-3491] module 'control_fsm' declared at 'C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/control_fsm.vhd:329' bound to instance 'fsm' of component 'control_fsm' [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/top.vhd:366]
+INFO: [Synth 8-638] synthesizing module 'control_fsm' [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/control_fsm.vhd:362]
+	Parameter home_0 bound to: 150000 - type: integer 
+	Parameter home_1 bound to: 150000 - type: integer 
+	Parameter home_2 bound to: 150000 - type: integer 
+	Parameter home_3 bound to: 150000 - type: integer 
+	Parameter home_4 bound to: 150000 - type: integer 
+	Parameter home_5 bound to: 150000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'control_fsm' (0#1) [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/control_fsm.vhd:362]
+	Parameter home_0 bound to: 150000 - type: integer 
+	Parameter home_1 bound to: 150000 - type: integer 
+	Parameter home_2 bound to: 150000 - type: integer 
+	Parameter home_3 bound to: 150000 - type: integer 
+	Parameter home_4 bound to: 150000 - type: integer 
+	Parameter home_5 bound to: 150000 - type: integer 
+INFO: [Synth 8-3491] module 'joint_regfile' declared at 'C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/joint_regfile.vhd:95' bound to instance 'regfile' of component 'joint_regfile' [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/top.vhd:387]
+INFO: [Synth 8-638] synthesizing module 'joint_regfile' [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/joint_regfile.vhd:118]
+	Parameter home_0 bound to: 150000 - type: integer 
+	Parameter home_1 bound to: 150000 - type: integer 
+	Parameter home_2 bound to: 150000 - type: integer 
+	Parameter home_3 bound to: 150000 - type: integer 
+	Parameter home_4 bound to: 150000 - type: integer 
+	Parameter home_5 bound to: 150000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'joint_regfile' (0#1) [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/joint_regfile.vhd:118]
+INFO: [Synth 8-3491] module 'limit_clamp' declared at 'C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/limit_clamp.vhd:34' bound to instance 'clamp' of component 'limit_clamp' [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/top.vhd:405]
+INFO: [Synth 8-638] synthesizing module 'limit_clamp' [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/limit_clamp.vhd:64]
+INFO: [Synth 8-256] done synthesizing module 'limit_clamp' (0#1) [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/limit_clamp.vhd:64]
+	Parameter period_cycles bound to: 2000000 - type: integer 
+	Parameter num_bits bound to: 18 - type: integer 
+INFO: [Synth 8-3491] module 'pwm_gen' declared at 'C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/pwm_gen.vhd:34' bound to instance 'pwm' of component 'pwm_gen' [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/top.vhd:411]
+INFO: [Synth 8-638] synthesizing module 'pwm_gen' [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/pwm_gen.vhd:50]
+	Parameter period_cycles bound to: 2000000 - type: integer 
+	Parameter num_bits bound to: 18 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'pwm_gen' (0#1) [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/pwm_gen.vhd:50]
+INFO: [Synth 8-256] done synthesizing module 'top' (0#1) [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/sources_1/new/top.vhd:239]
+WARNING: [Synth 8-7129] Port buttons[5] in module control_fsm is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1116.047 ; gain = 578.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1116.047 ; gain = 578.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1116.047 ; gain = 578.977
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1116.047 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/constrs_1/new/top.xdc]
+Finished Parsing XDC File [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/constrs_1/new/top.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.srcs/constrs_1/new/top.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1150.219 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1150.219 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1150.219 ; gain = 613.148
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a200tsbg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1150.219 ; gain = 613.148
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1150.219 ; gain = 613.148
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'nes_interface'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'control_fsm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+               waitframe |                          0000001 |                              000
+                 dolatch |                          0000010 |                              001
+           postlatchwait |                          0000100 |                              010
+               samplebit |                          0001000 |                              011
+                    done |                          0010000 |                              110
+               pulsehigh |                          0100000 |                              100
+                pulselow |                          1000000 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'nes_interface'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              000 |                              000
+                 movepos |                              001 |                              001
+                 moveneg |                              010 |                              010
+                gripopen |                              011 |                              011
+               gripclose |                              100 |                              100
+               resethome |                              101 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'control_fsm'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:21 . Memory (MB): peak = 1150.219 ; gain = 613.148
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   21 Bit       Adders := 1     
+	   2 Input   19 Bit       Adders := 2     
+	   3 Input   18 Bit       Adders := 2     
+	   2 Input   17 Bit       Adders := 1     
+	   2 Input   11 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 1     
+	   2 Input    5 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 3     
++---Registers : 
+	               21 Bit    Registers := 1     
+	               18 Bit    Registers := 7     
+	               11 Bit    Registers := 1     
+	                8 Bit    Registers := 4     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 3     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input   18 Bit        Muxes := 16    
+	   6 Input   18 Bit        Muxes := 1     
+	   3 Input   11 Bit        Muxes := 1     
+	   7 Input    8 Bit        Muxes := 1     
+	   6 Input    8 Bit        Muxes := 1     
+	   7 Input    7 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 3     
+	   6 Input    5 Bit        Muxes := 1     
+	   7 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 3     
+	   6 Input    3 Bit        Muxes := 2     
+	  11 Input    3 Bit        Muxes := 1     
+	   7 Input    1 Bit        Muxes := 10    
+	   2 Input    1 Bit        Muxes := 9     
+	   5 Input    1 Bit        Muxes := 1     
+	   6 Input    1 Bit        Muxes := 6     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 740 (col length:100)
+BRAMs: 730 (col length: RAMB18 100 RAMB36 50)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port buttons[5] in module control_fsm is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:26 . Memory (MB): peak = 1195.633 ; gain = 658.562
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:33 . Memory (MB): peak = 1302.559 ; gain = 765.488
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:38 . Memory (MB): peak = 1423.508 ; gain = 886.438
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:38 . Memory (MB): peak = 1425.434 ; gain = 888.363
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:43 . Memory (MB): peak = 1571.453 ; gain = 1034.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:43 . Memory (MB): peak = 1571.453 ; gain = 1034.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:43 . Memory (MB): peak = 1571.453 ; gain = 1034.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:43 . Memory (MB): peak = 1571.453 ; gain = 1034.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:43 . Memory (MB): peak = 1571.453 ; gain = 1034.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:43 . Memory (MB): peak = 1571.453 ; gain = 1034.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    57|
+|3     |LUT1   |    28|
+|4     |LUT2   |    86|
+|5     |LUT3   |    75|
+|6     |LUT4   |    78|
+|7     |LUT5   |   118|
+|8     |LUT6   |   257|
+|9     |FDRE   |   204|
+|10    |FDSE   |    49|
+|11    |IBUF   |     3|
+|12    |OBUF   |    11|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:43 . Memory (MB): peak = 1571.453 ; gain = 1034.383
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:40 . Memory (MB): peak = 1571.453 ; gain = 1000.211
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:43 . Memory (MB): peak = 1571.453 ; gain = 1034.383
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1580.641 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 57 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1587.215 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: f539db2a
+INFO: [Common 17-83] Releasing license: Synthesis
+45 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:01:12 . Memory (MB): peak = 1587.215 ; gain = 1291.039
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1587.215 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/C27John.Alves/ECE383/ece383_wksp/final_proj/final_proj.runs/synth_1/top.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu May  7 07:01:30 2026...
